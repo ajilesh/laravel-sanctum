@@ -29,8 +29,19 @@ class ProfileController extends Controller
             return $this->profile->sendError($message);
         }
     }
-    public function test()
+    public function fetchProductId($id)
     {
-        echo "test";
+        
+        
+        if(Profile::where('id', '=' , $id)->count() > 0)
+        {
+            $message = '';
+            $data = Profile::findOrFail($id);
+            return $this->profile->sendResponse($message,$data);
+        }
+        else{
+            $message = 'Profile Data Not Found';
+            return $this->profile->sendError($message);
+        }
     }
 }

@@ -20,7 +20,7 @@ Route::post('login',[LoginController::class,'Login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('profile',[ProfileController::class,'index']); 
     Route::post('logout',[LoginController::class,'logout']); 
-    Route::post('test',[ProfileController::class,'test']); 
+    Route::post('profile/{id}',[ProfileController::class,'fetchProductId']); 
 });
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
